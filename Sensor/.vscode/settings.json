@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.env.linux": {
+    "PATH": "/home/jakkra/.platformio/penv/bin:/home/jakkra/.platformio/penv:/home/jakkra/.Pokemon-Terminal:/home/jakkra/Android/Sdk/tools:/home/jakkra/Android/Sdk/platform-tools:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games",
+    "PLATFORMIO_CALLER": "vscode"
+  }
+}
