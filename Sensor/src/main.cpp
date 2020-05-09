@@ -23,7 +23,7 @@ typedef struct Payload {
 
 // Temperature sensor can be auto detected
 // Both temperature and Moisture sensor
-//#define MOISTURE_SENSOR_CONNECTED
+#define MOISTURE_SENSOR_CONNECTED
 
 #define TEMPERATURE_PRECISION             11
 #define DS18B20_REQUEST_TIME_MS           375
@@ -33,10 +33,10 @@ typedef struct Payload {
 #define MOISTURE_SENSOR_POWER_PIN         2
 #define MOISTURE_SENSOR_IN_PIN            A0
 
-#define ITERATIONS_30_MIN_IN_8S_INTERVAL  225
+#define ITERATIONS_60_MIN_IN_8S_INTERVAL  450
 
-#define LOG_RETRY_COUNT                   5
-#define WAIT_ACK_TIMEOUT                  500
+#define LOG_RETRY_COUNT                   2
+#define WAIT_ACK_TIMEOUT                  100
 #define NODE_ID                           7
 
 OneWire oneWire(ONE_WIRE_BUS_PIN);
@@ -226,13 +226,13 @@ if (foundTempSensor) {
 }
 
   LOG("Sleeping iterations:");
-  LOGLN(ITERATIONS_30_MIN_IN_8S_INTERVAL);
+  LOGLN(ITERATIONS_60_MIN_IN_8S_INTERVAL);
   nrf24.sleep();
 #ifdef DEBUG
   Serial.flush();
   delay(10000);
 #else
-  while(sleepCount <= ITERATIONS_30_MIN_IN_8S_INTERVAL) {
+  while(sleepCount <= ITERATIONS_60_MIN_IN_8S_INTERVAL) {
     LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
     sleepCount++;
   }
